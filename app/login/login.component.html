@@ -1,5 +1,19 @@
-<div class="center-div card small">
-    <div class="card-image waves-effect waves-block waves-light">
+<div class="center-div ">
+    <div class="row">
+        <div class="card-panel ">
+            <div class="input-field">
+                <input id="user_name" type="text" class="validate" [(ngModel)]="localUser.username">
+                <label for="user_name">Username</label>
+            </div>
+            <div class="input-field">
+                <input id="password" type="password" class="validate" [(ngModel)]="localUser.password">
+                <label for="password">Password</label>
+            </div>
+            <button class="waves-effect waves-light btn" (click)="login()">Login</button>
+        </div>
+    </div>
+</div>
+<!--<div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="http://lorempixel.com/400/200">  
     </div>
   
@@ -19,5 +33,4 @@
             <label for="password">Password</label>
         </div>
         <button class="waves-effect waves-light btn" (click)="login()">Login</button>
-    </div>
-</div>
+    </div>-->
