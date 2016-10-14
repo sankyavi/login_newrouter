@@ -30,16 +30,16 @@ var LoginComponent = (function () {
                 _this.router.navigate(['/dashboard']);
             }
             else {
-                console.log('Invalid user');
+                _this.error = true;
+                alert('Invalid user');
             }
         });
     };
     LoginComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
             selector: 'app-login',
-            templateUrl: 'login.component.html',
-            styleUrls: ['login.component.css']
+            templateUrl: './app/login/login.component.html',
+            styleUrls: ['./app/login/login.component.css']
         }), 
         __metadata('design:paramtypes', [auth_service_1.AuthService, router_1.Router])
     ], LoginComponent);

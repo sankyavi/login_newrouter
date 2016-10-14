@@ -10,23 +10,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var http_1 = require('@angular/http');
 var DashboardComponent = (function () {
-    function DashboardComponent(router) {
+    function DashboardComponent(router, http) {
         this.router = router;
+        this.http = http;
     }
-    DashboardComponent.prototype.ngOnInit = function () { };
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append("Access-Control-Allow-Origin", "*");
+        headers.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        this.token = window.sessionStorage.getItem('auth_key');
+        return new Promise(function (String) {
+            if (String === void 0) { String = []; }
+            _this.http.get('http://10.242.108.5:8088/AmhiCareWeb/CareRedirectServlet?token=' + _this.token + '' + '&url=/network/list').subscribe(function (data) {
+                console.log(data.json());
+                _this.list = data.json();
+            }, function (err) {
+                //console.log(err.status); 	
+                //console.log(err);
+                if (err.status === 403) {
+                    //alert("you dont have access");
+                    _this.error = true;
+                }
+            });
+        });
+    };
     DashboardComponent.prototype.logout = function () {
-        window.localStorage.removeItem('auth_key');
+        window.sessionStorage.removeItem('auth_key');
         this.router.navigate(['/login']);
     };
     DashboardComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
             selector: 'app-dashboard',
-            templateUrl: 'dashboard.component.html',
-            styleUrls: ['dashboard.component.css']
+            templateUrl: './app/dashboard/dashboard.component.html',
+            styleUrls: ['./app/dashboard/dashboard.component.css']
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, http_1.Http])
     ], DashboardComponent);
     return DashboardComponent;
 }());

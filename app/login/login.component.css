@@ -1,7 +1,12 @@
 .center-div
 {
-  top:50%;
+  top:55%;
   left: 50%;
   transform: translate3d(-50%,-50%, 0);
   position: absolute;
+}
+
+.red{
+  font-size: 12px;
+  
 }

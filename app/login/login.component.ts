@@ -3,10 +3,9 @@ import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-login',
-  templateUrl: 'login.component.html',
-  styleUrls: ['login.component.css']
+  templateUrl: './app/login/login.component.html',
+  styleUrls: ['./app/login/login.component.css']
 })
 export class LoginComponent implements OnInit {
   localUser = {
@@ -14,6 +13,7 @@ export class LoginComponent implements OnInit {
      password: ''
   };
   
+  private error : boolean;
   constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit() {}
@@ -25,7 +25,9 @@ export class LoginComponent implements OnInit {
       if(res) {
         this.router.navigate(['/dashboard']);
       } else {
-        console.log('Invalid user');
+        this.error = true;
+
+        alert('Invalid user');
       }
     });    
   }

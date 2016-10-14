@@ -13,7 +13,7 @@ export class AuthManager implements CanActivate {
     
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if(next.url[0].path == 'login'){
-            if(window.localStorage.getItem('auth_key')){
+            if(window.sessionStorage.getItem('auth_key')){
                 console.log('You are already logged in');
                 return false;
             }
@@ -22,7 +22,7 @@ export class AuthManager implements CanActivate {
             }
         }
         
-        if(window.localStorage.getItem('auth_key')) {
+        if(window.sessionStorage.getItem('auth_key')) {
             return true;
         }
         

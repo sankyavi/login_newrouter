@@ -16,7 +16,7 @@ var AuthManager = (function () {
     }
     AuthManager.prototype.canActivate = function (next, state) {
         if (next.url[0].path == 'login') {
-            if (window.localStorage.getItem('auth_key')) {
+            if (window.sessionStorage.getItem('auth_key')) {
                 console.log('You are already logged in');
                 return false;
             }
@@ -24,7 +24,7 @@ var AuthManager = (function () {
                 return true;
             }
         }
-        if (window.localStorage.getItem('auth_key')) {
+        if (window.sessionStorage.getItem('auth_key')) {
             return true;
         }
         console.log('You must be logged in');
