@@ -26,8 +26,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       } else {
         this.error = true;
-
-        //alert('Invalid user');
       }
     });    
   }
