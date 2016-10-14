@@ -31,7 +31,6 @@ var LoginComponent = (function () {
             }
             else {
                 _this.error = true;
-                alert('Invalid user');
             }
         });
     };

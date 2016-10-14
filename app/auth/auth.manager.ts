@@ -15,6 +15,7 @@ export class AuthManager implements CanActivate {
         if(next.url[0].path == 'login'){
             if(window.sessionStorage.getItem('auth_key')){
                 console.log('You are already logged in');
+                
                 return false;
             }
             else {

@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       } else {
         this.error = true;
 
-        alert('Invalid user');
+        //alert('Invalid user');
       }
     });    
   }
