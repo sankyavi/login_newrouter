@@ -4,7 +4,15 @@ import { Http , Headers} from '@angular/http';
 
 @Component({
     selector: '<app-addnetwork>',
-    templateUrl: './app/addnetwork/add.network.component.html'
+    templateUrl: './app/addnetwork/add.network.component.html',
+    styles : [`
+    #logout {
+    top:5%;
+    left: 94%;
+    transform: translate3d(-50%,-50%, 0);
+    position: absolute;
+    }
+    `]
 })
 
 

@@ -48,7 +48,8 @@ var AddNetworkComponent = (function () {
     AddNetworkComponent = __decorate([
         core_1.Component({
             selector: '<app-addnetwork>',
-            templateUrl: './app/addnetwork/add.network.component.html'
+            templateUrl: './app/addnetwork/add.network.component.html',
+            styles: ["\n    #logout {\n    top:5%;\n    left: 94%;\n    transform: translate3d(-50%,-50%, 0);\n    position: absolute;\n    }\n    "]
         }), 
         __metadata('design:paramtypes', [router_1.Router, http_1.Http])
     ], AddNetworkComponent);
