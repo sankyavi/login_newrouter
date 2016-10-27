@@ -10,14 +10,12 @@ export class AuthService {
   
   authenticateNow(usercreds) {
     var headers = new Headers();
-    var creds = 'name=' + usercreds.username + '&password=' + usercreds.password;
-
-	var jsondata ={"username":usercreds.username,"password":usercreds.password};
+    var jsondata ={"username":usercreds.username,"password":usercreds.password};
 
     headers.append('Content-Type', 'application/json');
 	headers.append("Access-Control-Allow-Origin", "*");
 	headers.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	//headers.append(creds);
+	
 
     return new Promise((resolve) => {
         this.http.post('http://10.242.108.5:8088/AmhiCareWeb/amhi/login', JSON.stringify(jsondata),{headers: headers}).subscribe((data) => {

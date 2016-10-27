@@ -18,12 +18,10 @@ var AuthService = (function () {
     AuthService.prototype.authenticateNow = function (usercreds) {
         var _this = this;
         var headers = new http_1.Headers();
-        var creds = 'name=' + usercreds.username + '&password=' + usercreds.password;
         var jsondata = { "username": usercreds.username, "password": usercreds.password };
         headers.append('Content-Type', 'application/json');
         headers.append("Access-Control-Allow-Origin", "*");
         headers.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        //headers.append(creds);
         return new Promise(function (resolve) {
             _this.http.post('http://10.242.108.5:8088/AmhiCareWeb/amhi/login', JSON.stringify(jsondata), { headers: headers }).subscribe(function (data) {
                 if (data.json().success) {

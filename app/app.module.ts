@@ -9,12 +9,15 @@ import { AuthService } from './auth/auth.service';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddNetworkComponent } from './addnetwork/add.network.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddNetworkComponent
   ],
   imports: [
     BrowserModule,

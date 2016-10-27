@@ -2,13 +2,51 @@
   Welcome.. You're now Logged in!!
 </p>
 <hr *ngIf="!error">
+<div *ngIf="loader" class="progress">
+      <div class="indeterminate"></div>
+  </div>
+<hr *ngIf="!error">
 <div *ngIf="error" class="card-panel">
       <span class="blue-text text-darken-2">You dont access to this service</span>
 </div>
-<ul class="collection" *ngIf="!error">
-      <li class="collection-item" *ngFor="let item of list">{{item}}</li>
-</ul>
+<table class="striped" *ngIf="!error">
+        <thead>
+          <tr>
+              <th data-field="id">ID</th>
+              <th data-field="name">Name</th>
+              <th data-field="description">Desc</th>
+              <th data-field="version">version</th>
+          </tr>
+        </thead>
 
+        <tbody>
+          <tr *ngFor="let item of list">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.version}}</td>
+          </tr>
+        </tbody>
+      </table>
 <hr>
 
 <button class="waves-effect waves-light btn" (click)="logout()">Logout</button>
+ <div *ngIf="!error" class="input-field col s12 m6">
+    <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+      <option value="4">Option 4</option>
+      <option value="5">Option 5</option>
+    </select>
+    <label>Page No</label>
+  </div>
+  <div *ngIf="!error" class="input-field col s12 m6">
+    <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+    </select>
+    <label>No of Entries</label>
+  </div>

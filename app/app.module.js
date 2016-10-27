@@ -18,6 +18,7 @@ var auth_service_1 = require('./auth/auth.service');
 var app_component_1 = require('./app.component');
 var login_component_1 = require('./login/login.component');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
+var add_network_component_1 = require('./addnetwork/add.network.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,7 +27,8 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 login_component_1.LoginComponent,
-                dashboard_component_1.DashboardComponent
+                dashboard_component_1.DashboardComponent,
+                add_network_component_1.AddNetworkComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,

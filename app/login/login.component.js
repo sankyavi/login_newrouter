@@ -23,7 +23,8 @@ var LoginComponent = (function () {
     LoginComponent.prototype.ngOnInit = function () { };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        console.log('localUser', this.localUser);
+        //console.log('localUser', this.localUser);
+        this.loader = true;
         var checknow = this.auth.authenticateNow(this.localUser);
         checknow.then(function (res) {
             if (res) {
@@ -31,6 +32,7 @@ var LoginComponent = (function () {
             }
             else {
                 _this.error = true;
+                _this.loader = false;
             }
         });
     };
