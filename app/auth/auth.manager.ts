@@ -15,7 +15,7 @@ export class AuthManager implements CanActivate {
         if(next.url[0].path == 'login'){
             if(window.sessionStorage.getItem('auth_key')){
                 console.log('You are already logged in');
-                
+                Materialize.toast('You are already logged in', 4000,'rounded');
                 return false;
             }
             else {
@@ -28,6 +28,7 @@ export class AuthManager implements CanActivate {
         }
         
         console.log('You must be logged in');
+        Materialize.toast('You must be logged in', 4000,'rounded');
         this.router.navigate(['/login']);
         return false;
     }

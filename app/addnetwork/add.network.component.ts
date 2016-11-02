@@ -7,11 +7,12 @@ import { Http , Headers} from '@angular/http';
     templateUrl: './app/addnetwork/add.network.component.html',
     styles : [`
     #logout {
-    top:5%;
-    left: 94%;
+    top:7%;
+    left: 93%;
     transform: translate3d(-50%,-50%, 0);
     position: absolute;
     }
+   
     `]
 })
 
