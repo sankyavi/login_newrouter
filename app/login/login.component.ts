@@ -7,22 +7,20 @@ import { Router } from '@angular/router';
   templateUrl: './app/login/login.component.html',
   styleUrls: ['./app/login/login.component.css']
 })
-export class LoginComponent implements OnInit {
-  localUser = {
+export class LoginComponent {
+  User = {
      username: '',
      password: ''
   };
   
   private error : boolean;
   private loader : boolean;
-  constructor(private auth: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  constructor(private auth: AuthService, private router: Router) {}
   
   login() {
-    //console.log('localUser', this.localUser);
     this.loader = true;
-    let checknow = this.auth.authenticateNow(this.localUser);
+    let checknow = this.auth.authenticateNow(this.User);
     checknow.then((res) => {
       if(res) {
         this.router.navigate(['/dashboard']);

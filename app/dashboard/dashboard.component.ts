@@ -71,8 +71,6 @@ export class DashboardComponent implements OnInit {
 		this.lastpage = false;
 		this.list = [];
 
-		console.log(typeof(input));
-		console.log("pageno"+this.pageno+"1s"+this.firstpage+"last"+this.lastpage);
 		if(input === 0){
 			this.pageno -= 1;
 		}
