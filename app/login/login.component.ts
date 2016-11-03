@@ -9,26 +9,26 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   User = {
-     username: '',
-     password: ''
+    username: '',
+    password: ''
   };
-  
-  private error : boolean;
-  private loader : boolean;
 
-  constructor(private auth: AuthService, private router: Router) {}
-  
+  private error: boolean;
+  private loader: boolean;
+
+  constructor(private auth: AuthService, private router: Router) { }
+
   login() {
     this.loader = true;
     let checknow = this.auth.authenticateNow(this.User);
     checknow.then((res) => {
-      if(res) {
+      if (res) {
         this.router.navigate(['/dashboard']);
       } else {
         this.error = true;
         this.loader = false;
       }
-    });    
+    });
   }
 
 }

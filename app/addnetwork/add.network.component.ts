@@ -5,7 +5,7 @@ import { Http } from '@angular/http';
 @Component({
     selector: '<app-addnetwork>',
     templateUrl: './app/addnetwork/add.network.component.html',
-    styles : [`
+    styles: [`
     #logout {
     top:7%;
     left: 93%;
@@ -19,39 +19,39 @@ import { Http } from '@angular/http';
 
 export class AddNetworkComponent {
 
-    constructor(private router: Router , private http: Http) {}
+    constructor(private router: Router, private http: Http) { }
 
     network = {
-     name: '',
-     description: ''
+        name: '',
+        description: ''
     };
 
-    success:boolean =  true;
+    success: boolean = true;
 
-    logout(){
-	window.sessionStorage.removeItem('auth_key');
-	this.router.navigate(['/login']);
+    logout() {
+        window.sessionStorage.removeItem('auth_key');
+        this.router.navigate(['/login']);
     }
 
-    enable(){
-	this.success = true;
+    enable() {
+        this.success = true;
     }
 
     Save() {
-    var token = window.sessionStorage.getItem('auth_key');
+        var token = window.sessionStorage.getItem('auth_key');
 
-	var jsondata ={"name":this.network.name,"description":this.network.description};
+        var jsondata = { "name": this.network.name, "description": this.network.description };
 
-    var url = 'http://10.242.108.5:8088/AmhiCareWeb/CareRedirectServlet?token='+token+'&url=/network';
+        var url = 'http://10.242.108.5:8088/AmhiCareWeb/CareRedirectServlet?token=' + token + '&url=/network';
 
-    this.http.post(url, JSON.stringify(jsondata)).subscribe((data) => {
-            if(data.status === 200) {
+        this.http.post(url, JSON.stringify(jsondata)).subscribe((data) => {
+            if (data.status === 200) {
                 console.log('done');
                 this.success = false;
-				}
             }
+        }
         )
-  
-  }
+
+    }
 
 }

@@ -1,59 +1,59 @@
 <h4>List of Networks</h4>
 <hr *ngIf="!error">
 <div *ngIf="loader" class="progress">
-      <div class="indeterminate"></div>
+  <div class="indeterminate"></div>
 </div>
 
 <div *ngIf="error" class="card-panel">
-      <span class="blue-text text-darken-2">You dont access to this service</span>
+  <span class="blue-text text-darken-2">You dont access to this service</span>
 </div>
 <div *ngIf="empty" class="card-panel">
-      <span class="blue-text text-darken-2">No results were returned</span>
+  <span class="blue-text text-darken-2">No results were returned</span>
 </div>
 <table class="striped" *ngIf="!error">
-        <thead>
-          <tr>
-              <th data-field="id">ID</th>
-              <th data-field="name">Name</th>
-              <th data-field="description">Desc</th>
-              <th data-field="version">version</th>
-          </tr>
-        </thead>
+  <thead>
+    <tr>
+      <th data-field="id">ID</th>
+      <th data-field="name">Name</th>
+      <th data-field="description">Desc</th>
+      <th data-field="version">version</th>
+    </tr>
+  </thead>
 
-        <tbody>
-          <tr *ngFor="let item of list">
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.description}}</td>
-            <td>{{item.version}}</td>
-          </tr>
-        </tbody>
-      </table>
+  <tbody>
+    <tr *ngFor="let item of list">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.version}}</td>
+    </tr>
+  </tbody>
+</table>
 <hr>
 
 <button id="logout" class="waves-effect waves-light btn" (click)="logout()">Logout</button>
 
- <ul class="pagination">
-    <li *ngIf="!firstpage" (click)="pagination(0)" class="disabled"><i class="material-icons">chevron_left</i></li>
-    <li (click)="pagination(1)" class="waves-effect">1</li>
-    <li (click)="pagination(2)" class="waves-effect">2</li>
-    <li (click)="pagination(3)" class="waves-effect">3</li>
-    <li (click)="pagination(4)" class="waves-effect">4</li>
-    <li (click)="pagination(5)" class="waves-effect">5</li>
-    <li *ngIf="!lastpage" (click)="pagination(9999)" class="waves-effect"><i class="material-icons">chevron_right</i></li>
-  </ul> 
- <p>Showing Page : {{pageno}}</p>
- 
+<ul class="pagination">
+  <li *ngIf="!firstpage" (click)="pagination(0)" class="disabled"><i class="material-icons">chevron_left</i></li>
+  <li (click)="pagination(1)" class="waves-effect">1</li>
+  <li (click)="pagination(2)" class="waves-effect">2</li>
+  <li (click)="pagination(3)" class="waves-effect">3</li>
+  <li (click)="pagination(4)" class="waves-effect">4</li>
+  <li (click)="pagination(5)" class="waves-effect">5</li>
+  <li *ngIf="!lastpage" (click)="pagination(9999)" class="waves-effect"><i class="material-icons">chevron_right</i></li>
+</ul>
+<p>Showing Page : {{pageno}}</p>
 
 
- <form action="#">
-   <p>Togle no of entries (* Default is 5)</p>
-    <p>
-      <input name="group1" type="radio" id="test1" />
-      <label for="test1" (click)="toggle(5)">5</label>
-    </p>
-    <p>
-      <input name="group1" type="radio" id="test2" />
-      <label for="test2" (click)="toggle(10)">10</label>
-    </p>
- </form>
+
+<form action="#">
+  <p>Togle no of entries (* Default is 5)</p>
+  <p>
+    <input name="group1" type="radio" id="test1" />
+    <label for="test1" (click)="toggle(5)">5</label>
+  </p>
+  <p>
+    <input name="group1" type="radio" id="test2" />
+    <label for="test2" (click)="toggle(10)">10</label>
+  </p>
+</form>
